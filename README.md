@@ -89,6 +89,10 @@ _Example:_
 await piping.once('finish')
 ```
 
+### Warning
+
+Not all features are implemented yet.
+
 ### License
 
 Copyright (c) 2017 Piotr Roszatycki <piotr.roszatycki@gmail.com>
