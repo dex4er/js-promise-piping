@@ -4,6 +4,9 @@ import { PromiseDuplex } from 'promise-duplex'
 import { PromiseReadable } from 'promise-readable'
 import { PromiseWritable } from 'promise-writable'
 
+export { PromiseReadablePiping } from './promise-readable-piping'
+export { PromiseWritablePiping } from './promise-writable-piping'
+
 type Readable = NodeJS.ReadableStream
 type Writable = NodeJS.WritableStream
 
@@ -25,3 +28,5 @@ export class PromisePiping {
   once (event: 'pipe'): Promise<NodeJS.ReadableStream>
   once (event: 'unpipe'): Promise<NodeJS.ReadableStream>
 }
+
+export default PromisePiping

@@ -24,3 +24,5 @@ export class PromiseWritablePiping extends PromiseWritable<Duplex | Writable> {
 
   end (): Promise<void>
 }
+
+export default PromiseWritablePiping

@@ -19,3 +19,5 @@ export class PromiseReadablePiping extends PromiseReadable<Readable | Duplex> {
   once (event: 'error'): Promise<void>
   once (event: 'open'): Promise<number>
 }
+
+export default PromiseReadablePiping
