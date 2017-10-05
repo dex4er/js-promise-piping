@@ -1,6 +1,6 @@
 {
   "name": "promise-piping",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Return promise for streams piping",
   "main": "lib/promise-piping.js",
   "typings": "lib/promise-piping.d.ts",

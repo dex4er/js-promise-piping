@@ -73,15 +73,11 @@ const piping = new PromisePiping(filein, gzip, fileout)
 const result = await piping.once(event)
 ```
 
-This method returns `Promise` which is fulfilled when last stream emits
-`event`. The result of this event is returned or `undefined` value if stream
-is already ended.
+This method returns `Promise` which is fulfilled when last stream (first
+stream for `end` event) emits event. The result of this event is returned
+or `undefined` value if stream is already ended.
 
 The promise will reject on error.
-
-_TODO:_
-
-Different events should be read from different streams.
 
 _Example:_
 
