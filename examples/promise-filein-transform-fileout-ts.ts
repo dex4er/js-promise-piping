@@ -50,13 +50,13 @@ async function pipe3 () {
 async function main (): Promise<void> {
   switch (process.env.MODE) {
     case '2':
-      pipe2()
+      await pipe2()
       break
     case '3':
-      pipe3()
+      await pipe3()
       break
     default:
-      pipe1()
+      await pipe1()
   }
   console.log('END')
 }

@@ -1,6 +1,6 @@
 /// <reference types="node" />
 
-import { Duplex } from 'stream'
+import * as stream from 'stream'
 
 import { PromiseDuplex } from 'promise-duplex'
 import { PromiseReadable } from 'promise-readable'
@@ -9,18 +9,15 @@ import { PromiseWritable } from 'promise-writable'
 export { PromiseReadablePiping } from './promise-readable-piping'
 export { PromiseWritablePiping } from './promise-writable-piping'
 
-type Readable = NodeJS.ReadableStream
-type Writable = NodeJS.WritableStream
-
 export class PromisePiping {
-  readonly promiseReadable: PromiseReadable<Readable>
-  readonly promiseWritable: PromiseWritable<Writable>
+  readonly promiseReadable: PromiseReadable<NodeJS.ReadableStream>
+  readonly promiseWritable: PromiseWritable<NodeJS.WritableStream>
 
-  readonly duplex: Duplex[]
+  readonly duplex: stream.Duplex[]
 
-  constructor (readable: Readable | PromiseReadable<Readable>, duplex1: Duplex | PromiseDuplex<Duplex>, duplex2: Duplex | PromiseDuplex<Duplex>, writable: Writable | PromiseWritable<Writable>)
-  constructor (readable: Readable | PromiseReadable<Readable>, duplex: Duplex | PromiseDuplex<Duplex>, writable: Writable | PromiseWritable<Writable>)
-  constructor (readable: Readable | PromiseReadable<Readable>, writable: Writable | PromiseWritable<Writable>)
+  constructor (readable: NodeJS.ReadableStream | PromiseReadable<NodeJS.ReadableStream>, duplex1: stream.Duplex | PromiseDuplex<stream.Duplex>, duplex2: stream.Duplex | PromiseDuplex<stream.Duplex>, writable: NodeJS.WritableStream | PromiseWritable<NodeJS.WritableStream>)
+  constructor (readable: NodeJS.ReadableStream | PromiseReadable<NodeJS.ReadableStream>, duplex: stream.Duplex | PromiseDuplex<stream.Duplex>, writable: NodeJS.WritableStream | PromiseWritable<NodeJS.WritableStream>)
+  constructor (readable: NodeJS.ReadableStream | PromiseReadable<NodeJS.ReadableStream>, writable: NodeJS.WritableStream | PromiseWritable<NodeJS.WritableStream>)
 
   once (event: 'close'): Promise<void>
   once (event: 'end'): Promise<void>

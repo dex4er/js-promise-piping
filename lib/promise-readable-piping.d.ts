@@ -1,20 +1,18 @@
 /// <reference types="node" />
 
-import { Duplex } from 'stream'
+import * as stream from 'stream'
 
 import { PromiseDuplex } from 'promise-duplex'
 import { PromiseReadable } from 'promise-readable'
 
-type Readable = NodeJS.ReadableStream
+export class PromiseReadablePiping extends PromiseReadable<NodeJS.ReadableStream | stream.Duplex> {
+  stream: NodeJS.ReadableStream
+  promiseReadable: PromiseReadable<NodeJS.ReadableStream>
 
-export class PromiseReadablePiping extends PromiseReadable<Readable | Duplex> {
-  stream: Readable
-  promiseReadable: PromiseReadable<Readable>
+  readonly duplex: stream.Duplex[]
 
-  readonly duplex: Duplex[]
-
-  constructor (readable: Readable | PromiseReadable<Readable>, duplex1: Duplex | PromiseDuplex<Duplex>, duplex2: Duplex | PromiseDuplex<Duplex>)
-  constructor (readable: Readable | PromiseReadable<Readable>, duplex: Duplex | PromiseDuplex<Duplex>)
+  constructor (readable: NodeJS.ReadableStream | PromiseReadable<NodeJS.ReadableStream>, duplex1: stream.Duplex | PromiseDuplex<stream.Duplex>, duplex2: stream.Duplex | PromiseDuplex<stream.Duplex>)
+  constructor (readable: NodeJS.ReadableStream | PromiseReadable<NodeJS.ReadableStream>, duplex: stream.Duplex | PromiseDuplex<stream.Duplex>)
 
   once (event: 'close'): Promise<void>
   once (event: 'end'): Promise<void>
