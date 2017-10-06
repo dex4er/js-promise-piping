@@ -1,6 +1,6 @@
 {
   "name": "promise-piping",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Return promise for streams piping",
   "main": "lib/promise-piping.js",
   "typings": "lib/promise-piping.d.ts",
@@ -24,10 +24,10 @@
     "node": ">=4.0.0"
   },
   "dependencies": {
-    "promise-duplex": "^1.1.1"
+    "promise-duplex": "^2.0.0"
   },
   "devDependencies": {
-    "@types/node": "^8.0.32",
+    "@types/node": "^8.0.33",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "snazzy": "^7.0.0",

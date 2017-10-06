@@ -1,3 +1,5 @@
+/// <reference types="node" />
+
 import { Duplex } from 'stream'
 
 import { PromiseDuplex } from 'promise-duplex'
