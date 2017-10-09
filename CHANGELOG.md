@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.1 2017-10-09
+
+  * Bugfix for `PromiseWritablePiping` typings.
+
 ## v0.2.0 2017-10-06
 
   * Use native `Promise` rather than `any-event`.

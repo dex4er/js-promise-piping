@@ -7,7 +7,7 @@ import { PromiseWritable } from 'promise-writable'
 
 export class PromiseWritablePiping extends PromiseWritable<stream.Duplex | NodeJS.WritableStream> {
   stream: NodeJS.WritableStream
-  promisePromiseWritable: PromiseWritable<NodeJS.WritableStream>
+  promiseWritable: PromiseWritable<NodeJS.WritableStream>
 
   readonly duplex: stream.Duplex[]
 
