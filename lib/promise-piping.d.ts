@@ -1,6 +1,6 @@
 /// <reference types="node" />
 
-import * as stream from 'stream'
+import { Readable, Writable, Duplex } from 'stream'
 
 import { PromiseDuplex } from 'promise-duplex'
 import { PromiseReadable } from 'promise-readable'
@@ -10,22 +10,24 @@ export { PromiseReadablePiping } from './promise-readable-piping'
 export { PromiseWritablePiping } from './promise-writable-piping'
 
 export class PromisePiping {
-  readonly promiseReadable: PromiseReadable<NodeJS.ReadableStream>
-  readonly promiseWritable: PromiseWritable<NodeJS.WritableStream>
+  readonly promiseReadable: PromiseReadable<Readable>
+  readonly promiseWritable: PromiseWritable<Writable>
 
-  readonly duplex: stream.Duplex[]
+  readonly duplex: Duplex[]
 
-  constructor (readable: NodeJS.ReadableStream | PromiseReadable<NodeJS.ReadableStream>, duplex1: stream.Duplex | PromiseDuplex<stream.Duplex>, duplex2: stream.Duplex | PromiseDuplex<stream.Duplex>, writable: NodeJS.WritableStream | PromiseWritable<NodeJS.WritableStream>)
-  constructor (readable: NodeJS.ReadableStream | PromiseReadable<NodeJS.ReadableStream>, duplex: stream.Duplex | PromiseDuplex<stream.Duplex>, writable: NodeJS.WritableStream | PromiseWritable<NodeJS.WritableStream>)
-  constructor (readable: NodeJS.ReadableStream | PromiseReadable<NodeJS.ReadableStream>, writable: NodeJS.WritableStream | PromiseWritable<NodeJS.WritableStream>)
+  constructor (readable: Readable | PromiseReadable<Readable>, duplex1: Duplex | PromiseDuplex<Duplex>, duplex2: Duplex | PromiseDuplex<Duplex>, duplex3: Duplex | PromiseDuplex<Duplex>, duplex4: Duplex | PromiseDuplex<Duplex>, duplex5: Duplex | PromiseDuplex<Duplex>, duplex6: Duplex | PromiseDuplex<Duplex>, duplex7: Duplex | PromiseDuplex<Duplex>, duplex8: Duplex | PromiseDuplex<Duplex>, writable: Writable | PromiseWritable<Writable>)
+  constructor (readable: Readable | PromiseReadable<Readable>, duplex1: Duplex | PromiseDuplex<Duplex>, duplex2: Duplex | PromiseDuplex<Duplex>, duplex3: Duplex | PromiseDuplex<Duplex>, duplex4: Duplex | PromiseDuplex<Duplex>, duplex5: Duplex | PromiseDuplex<Duplex>, duplex6: Duplex | PromiseDuplex<Duplex>, duplex7: Duplex | PromiseDuplex<Duplex>, writable: Writable | PromiseWritable<Writable>)
+  constructor (readable: Readable | PromiseReadable<Readable>, duplex1: Duplex | PromiseDuplex<Duplex>, duplex2: Duplex | PromiseDuplex<Duplex>, duplex3: Duplex | PromiseDuplex<Duplex>, duplex4: Duplex | PromiseDuplex<Duplex>, duplex5: Duplex | PromiseDuplex<Duplex>, duplex6: Duplex | PromiseDuplex<Duplex>, writable: Writable | PromiseWritable<Writable>)
+  constructor (readable: Readable | PromiseReadable<Readable>, duplex1: Duplex | PromiseDuplex<Duplex>, duplex2: Duplex | PromiseDuplex<Duplex>, duplex3: Duplex | PromiseDuplex<Duplex>, duplex4: Duplex | PromiseDuplex<Duplex>, duplex5: Duplex | PromiseDuplex<Duplex>, writable: Writable | PromiseWritable<Writable>)
+  constructor (readable: Readable | PromiseReadable<Readable>, duplex1: Duplex | PromiseDuplex<Duplex>, duplex2: Duplex | PromiseDuplex<Duplex>, duplex3: Duplex | PromiseDuplex<Duplex>, duplex4: Duplex | PromiseDuplex<Duplex>, writable: Writable | PromiseWritable<Writable>)
+  constructor (readable: Readable | PromiseReadable<Readable>, duplex1: Duplex | PromiseDuplex<Duplex>, duplex2: Duplex | PromiseDuplex<Duplex>, duplex3: Duplex | PromiseDuplex<Duplex>, writable: Writable | PromiseWritable<Writable>)
+  constructor (readable: Readable | PromiseReadable<Readable>, duplex1: Duplex | PromiseDuplex<Duplex>, duplex2: Duplex | PromiseDuplex<Duplex>, writable: Writable | PromiseWritable<Writable>)
+  constructor (readable: Readable | PromiseReadable<Readable>, duplex: Duplex | PromiseDuplex<Duplex>, writable: Writable | PromiseWritable<Writable>)
+  constructor (readable: Readable | PromiseReadable<Readable>, writable: Writable | PromiseWritable<Writable>)
 
-  once (event: 'close'): Promise<void>
-  once (event: 'end'): Promise<void>
-  once (event: 'error'): Promise<void>
-  once (event: 'finish'): Promise<void>
+  once (event: 'close' | 'end' | 'error' | 'finish'): Promise<void>
   once (event: 'open'): Promise<number>
-  once (event: 'pipe'): Promise<NodeJS.ReadableStream>
-  once (event: 'unpipe'): Promise<NodeJS.ReadableStream>
+  once (event: 'pipe' | 'unpipe'): Promise<Readable>
 }
 
 export default PromisePiping

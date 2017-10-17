@@ -1,6 +1,6 @@
 import * as fs from 'fs'
 
-import { Duplex, Transform } from 'stream'
+import { Transform } from 'stream'
 
 import { PromiseReadablePiping } from '../lib/promise-readable-piping'
 import { PromiseWritablePiping } from '../lib/promise-writable-piping'
@@ -8,7 +8,7 @@ import { PromiseWritablePiping } from '../lib/promise-writable-piping'
 import { PromisePiping } from '../lib/promise-piping'
 
 class MyTransform extends Transform {
-  _transform (chunk: string | Buffer, encoding: string, callback: (err: Error | null, chunk: string | Buffer) => void): void {
+  _transform (chunk: string | Buffer, {}, callback: (err: Error | null, chunk: string | Buffer) => void): void {
     callback(null, chunk)
   }
   _flush (callback: () => void) {
@@ -26,7 +26,7 @@ const streams = {
 for (const stream of Object.keys(streams)) {
   for (const event of ['close', 'data', 'drain', 'end', 'error', 'finish', 'pipe', 'readable', 'unpipe']) {
     if (stream === 'stdout' && ['data', 'readable'].includes(event)) continue
-    (streams as any)[stream].on(event, (arg: any) => console.log(`${stream} emitted ${event}:`, typeof arg === 'object' ? arg.constructor.name : arg))
+    (streams as any)[stream].on(event, (arg: any) => console.info(`${stream} emitted ${event}:`, typeof arg === 'object' ? arg.constructor.name : arg))
   }
 }
 
@@ -58,7 +58,7 @@ async function main (): Promise<void> {
     default:
       await pipe1()
   }
-  console.log('END')
+  console.info('END')
 }
 
 main().catch(console.error)

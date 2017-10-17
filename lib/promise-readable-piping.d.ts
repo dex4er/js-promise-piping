@@ -1,22 +1,27 @@
 /// <reference types="node" />
 
-import * as stream from 'stream'
+import { Readable, Duplex } from 'stream'
 
 import { PromiseDuplex } from 'promise-duplex'
 import { PromiseReadable } from 'promise-readable'
 
-export class PromiseReadablePiping extends PromiseReadable<NodeJS.ReadableStream | stream.Duplex> {
-  stream: NodeJS.ReadableStream
-  promiseReadable: PromiseReadable<NodeJS.ReadableStream>
+export class PromiseReadablePiping extends PromiseReadable<Readable | Duplex> {
+  stream: Readable
+  promiseReadable: PromiseReadable<Readable>
 
-  readonly duplex: stream.Duplex[]
+  readonly duplex: Duplex[]
 
-  constructor (readable: NodeJS.ReadableStream | PromiseReadable<NodeJS.ReadableStream>, duplex1: stream.Duplex | PromiseDuplex<stream.Duplex>, duplex2: stream.Duplex | PromiseDuplex<stream.Duplex>)
-  constructor (readable: NodeJS.ReadableStream | PromiseReadable<NodeJS.ReadableStream>, duplex: stream.Duplex | PromiseDuplex<stream.Duplex>)
+  constructor (readable: Readable | PromiseReadable<Readable>, duplex1: Duplex | PromiseDuplex<Duplex>, duplex2: Duplex | PromiseDuplex<Duplex>, duplex3: Duplex | PromiseDuplex<Duplex>, duplex4: Duplex | PromiseDuplex<Duplex>, duplex5: Duplex | PromiseDuplex<Duplex>, duplex6: Duplex | PromiseDuplex<Duplex>, duplex7: Duplex | PromiseDuplex<Duplex>, duplex8: Duplex | PromiseDuplex<Duplex>, duplex9: Duplex | PromiseDuplex<Duplex>)
+  constructor (readable: Readable | PromiseReadable<Readable>, duplex1: Duplex | PromiseDuplex<Duplex>, duplex2: Duplex | PromiseDuplex<Duplex>, duplex3: Duplex | PromiseDuplex<Duplex>, duplex4: Duplex | PromiseDuplex<Duplex>, duplex5: Duplex | PromiseDuplex<Duplex>, duplex6: Duplex | PromiseDuplex<Duplex>, duplex7: Duplex | PromiseDuplex<Duplex>, duplex8: Duplex | PromiseDuplex<Duplex>)
+  constructor (readable: Readable | PromiseReadable<Readable>, duplex1: Duplex | PromiseDuplex<Duplex>, duplex2: Duplex | PromiseDuplex<Duplex>, duplex3: Duplex | PromiseDuplex<Duplex>, duplex4: Duplex | PromiseDuplex<Duplex>, duplex5: Duplex | PromiseDuplex<Duplex>, duplex6: Duplex | PromiseDuplex<Duplex>, duplex7: Duplex | PromiseDuplex<Duplex>)
+  constructor (readable: Readable | PromiseReadable<Readable>, duplex1: Duplex | PromiseDuplex<Duplex>, duplex2: Duplex | PromiseDuplex<Duplex>, duplex3: Duplex | PromiseDuplex<Duplex>, duplex4: Duplex | PromiseDuplex<Duplex>, duplex5: Duplex | PromiseDuplex<Duplex>, duplex6: Duplex | PromiseDuplex<Duplex>)
+  constructor (readable: Readable | PromiseReadable<Readable>, duplex1: Duplex | PromiseDuplex<Duplex>, duplex2: Duplex | PromiseDuplex<Duplex>, duplex3: Duplex | PromiseDuplex<Duplex>, duplex4: Duplex | PromiseDuplex<Duplex>, duplex5: Duplex | PromiseDuplex<Duplex>)
+  constructor (readable: Readable | PromiseReadable<Readable>, duplex1: Duplex | PromiseDuplex<Duplex>, duplex2: Duplex | PromiseDuplex<Duplex>, duplex3: Duplex | PromiseDuplex<Duplex>, duplex4: Duplex | PromiseDuplex<Duplex>)
+  constructor (readable: Readable | PromiseReadable<Readable>, duplex1: Duplex | PromiseDuplex<Duplex>, duplex2: Duplex | PromiseDuplex<Duplex>, duplex3: Duplex | PromiseDuplex<Duplex>)
+  constructor (readable: Readable | PromiseReadable<Readable>, duplex1: Duplex | PromiseDuplex<Duplex>, duplex2: Duplex | PromiseDuplex<Duplex>)
+  constructor (readable: Readable | PromiseReadable<Readable>, duplex: Duplex | PromiseDuplex<Duplex>)
 
-  once (event: 'close'): Promise<void>
-  once (event: 'end'): Promise<void>
-  once (event: 'error'): Promise<void>
+  once (event: 'close' | 'end' | 'error'): Promise<void>
   once (event: 'open'): Promise<number>
 }
 

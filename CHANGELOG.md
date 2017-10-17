@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.3.0 2017-10-17
+
+  * Typescript: accept stream.Readable and stream.Writable as arguments.
+
 ## v0.2.1 2017-10-09
 
   * Bugfix for `PromiseWritablePiping` typings.
