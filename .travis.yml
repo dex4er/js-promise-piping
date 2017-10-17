@@ -23,6 +23,7 @@ matrix:
 
     - node_js: "4"
       env:
+        - NPM_INSTALL_PACKAGES="promise-readable promise-writable"
         - TAP_ARGS="--strict --harmony"
         - TAP_RCFILE=./.taprc
 
