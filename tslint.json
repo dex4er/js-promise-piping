@@ -6,6 +6,7 @@
   "rules": {
     "max-line-length": false,
     "no-conditional-assignment": false,
-    "no-console": [true, "log"]
+    "no-console": [true, "log"],
+    "no-unused-variable": false
   }
 }
