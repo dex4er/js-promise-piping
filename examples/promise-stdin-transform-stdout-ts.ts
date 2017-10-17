@@ -12,8 +12,8 @@ class MyTransform extends Transform {
 }
 
 const streams = {
-  stdin: process.stdin as any,
-  stdout: process.stdout as any,
+  stdin: process.stdin,
+  stdout: process.stdout,
   transform1: new MyTransform(),
   transform2: new MyTransform()
 }
