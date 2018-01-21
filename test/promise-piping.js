@@ -47,8 +47,8 @@ Feature('Test promise-piping module', () => {
       piping = new PromisePiping(readable, transform1, transform2, transform3, writable)
     })
 
-    And('waiting for finish', async () => {
-      await piping.once('finish')
+    And('waiting for finish', () => {
+      return piping.once('finish')
     })
 
     Then('content is correct', () => {
@@ -90,12 +90,11 @@ Feature('Test promise-piping module', () => {
         piping = new PromisePiping(readable, transform1, transform2, transform3, writable)
       })
 
-      And('waiting for finish', async () => {
-        try {
-          await piping.once('finish')
-        } catch (e) {
-          error = e
-        }
+      And('waiting for finish', () => {
+        return piping.once('finish')
+          .catch((err) => {
+            error = err
+          })
       })
 
       Then('error is caught', () => {

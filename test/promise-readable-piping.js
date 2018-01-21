@@ -15,10 +15,9 @@ const MyTransform = require('./lib/my-transform').MyTransform
 
 Feature('Test promise-readable-piping module', () => {
   Scenario('Use readable piping', () => {
-    let finished = false
+    let content
     let piping
     let readable
-    let rest
     let transform1
     let transform2
     let transform3
@@ -43,22 +42,14 @@ Feature('Test promise-readable-piping module', () => {
       piping = new PromiseReadablePiping(readable, transform1, transform2, transform3)
     })
 
-    And('waiting for finish', () => {
-      piping.once('finish').then(() => {
-        finished = true
+    And('all of content is read', () => {
+      return piping.readAll().then((buffer) => {
+        content = String(buffer)
       })
     })
 
-    And('all of content is read', async () => {
-      rest = String(await piping.readAll())
-    })
-
     Then('content is correct', () => {
-      rest.split('\n').length.should.equal(11)
-    })
-
-    And('piping is finished', () => {
-      return finished.should.be.true
+      content.split('\n').length.should.equal(11)
     })
   })
 
@@ -91,12 +82,11 @@ Feature('Test promise-readable-piping module', () => {
         piping = new PromiseReadablePiping(readable, transform1, transform2, transform3)
       })
 
-      And('all of content is read', async () => {
-        try {
-          await piping.readAll()
-        } catch (e) {
-          error = e
-        }
+      And('all of content is read', () => {
+        return piping.readAll()
+          .catch((err) => {
+            error = err
+          })
       })
 
       Then('error is caught', () => {

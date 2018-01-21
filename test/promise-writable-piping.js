@@ -15,7 +15,6 @@ const MyWritable = require('./lib/my-writable').MyWritable
 
 Feature('Test promise-writable-piping module', () => {
   Scenario('Use writable piping', () => {
-    let finished = false
     let piping
     let transform1
     let transform2
@@ -42,22 +41,12 @@ Feature('Test promise-writable-piping module', () => {
       piping = new PromiseWritablePiping(transform1, transform2, transform3, writable)
     })
 
-    And('waiting for finish', () => {
-      piping.once('finish').then(() => {
-        finished = true
-      })
-    })
-
-    When('all of content is written', async () => {
-      await piping.writeAll([...Array(10).keys()].map((n) => `line ${n + 1}\n`).join(''), 7)
+    When('all of content is written', () => {
+      return piping.writeAll([...Array(10).keys()].map((n) => `line ${n + 1}\n`).join(''), 7)
     })
 
     Then('content is correct', () => {
       writable.lines.length.should.equal(11)
-    })
-
-    And('piping is finished', () => {
-      return finished.should.be.true
     })
   })
 
@@ -90,12 +79,11 @@ Feature('Test promise-writable-piping module', () => {
         piping = new PromiseWritablePiping(transform1, transform2, transform3, writable)
       })
 
-      And('all of content is written', async () => {
-        try {
-          await piping.writeAll([...Array(10).keys()].map((n) => `line ${n + 1}\n`).join(''), 7)
-        } catch (e) {
-          error = e
-        }
+      And('all of content is written', () => {
+        return piping.writeAll([...Array(10).keys()].map((n) => `line ${n + 1}\n`).join(''), 7)
+          .catch((err) => {
+            error = err
+          })
       })
 
       Then('error is caught', () => {
