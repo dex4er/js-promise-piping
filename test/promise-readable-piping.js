@@ -8,20 +8,20 @@ const chaiAsPromised = require('chai-as-promised')
 chai.use(chaiAsPromised)
 chai.should()
 
-const PromisePiping = require('../lib/promise-piping').PromisePiping
+const PromiseReadablePiping = require('../lib/promise-readable-piping').PromiseReadablePiping
 
 const MyReadable = require('./lib/my-readable').MyReadable
 const MyTransform = require('./lib/my-transform').MyTransform
-const MyWritable = require('./lib/my-writable').MyWritable
 
-Feature('Test promise-piping module', () => {
-  Scenario('Use piping', () => {
+Feature('Test promise-readable-piping module', () => {
+  Scenario('Use readable piping', () => {
+    let finished = false
     let piping
     let readable
+    let rest
     let transform1
     let transform2
     let transform3
-    let writable
 
     Given('readable stream', () => {
       readable = new MyReadable({ name: 'readable', lines: 10 })
@@ -39,32 +39,37 @@ Feature('Test promise-piping module', () => {
       transform3 = new MyTransform({ name: 'transform3' })
     })
 
-    And('writable stream', () => {
-      writable = new MyWritable({ name: 'writable' })
+    When('readable piping is created', () => {
+      piping = new PromiseReadablePiping(readable, transform1, transform2, transform3)
     })
 
-    When('piping is created', () => {
-      piping = new PromisePiping(readable, transform1, transform2, transform3, writable)
+    And('waiting for finish', () => {
+      piping.once('finish').then(() => {
+        finished = true
+      })
     })
 
-    And('waiting for finish', async () => {
-      await piping.once('finish')
+    And('all of content is read', async () => {
+      rest = String(await piping.readAll())
     })
 
     Then('content is correct', () => {
-      writable.lines.length.should.equal(10)
+      rest.split('\n').length.should.equal(11)
+    })
+
+    And('piping is finished', () => {
+      return finished.should.be.true
     })
   })
 
-  for (const name of ['readable', 'transform1', 'transform2', 'transform3', 'writable']) {
-    Scenario(`Use piping with ${name} stream errored`, () => {
+  for (const name of ['readable', 'transform1', 'transform2', 'transform3']) {
+    Scenario(`Use readable piping with ${name} stream errored`, () => {
       let error
       let piping
       let readable
       let transform1
       let transform2
       let transform3
-      let writable
 
       Given('readable stream' + (name === 'readable' ? ' with error' : ''), () => {
         readable = new MyReadable({ name: 'readable', lines: 10, withError: name === 'readable' })
@@ -82,17 +87,13 @@ Feature('Test promise-piping module', () => {
         transform3 = new MyTransform({ name: 'transform3', withError: name === 'transform3' })
       })
 
-      And('writable stream' + (name === 'writable' ? ' with error' : ''), () => {
-        writable = new MyWritable({ name: 'writable', withError: name === 'writable' })
+      When('readable piping is created', () => {
+        piping = new PromiseReadablePiping(readable, transform1, transform2, transform3)
       })
 
-      When('piping is created', () => {
-        piping = new PromisePiping(readable, transform1, transform2, transform3, writable)
-      })
-
-      And('waiting for finish', async () => {
+      And('all of content is read', async () => {
         try {
-          await piping.once('finish')
+          await piping.readAll()
         } catch (e) {
           error = e
         }
