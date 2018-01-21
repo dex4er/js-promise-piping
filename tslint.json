@@ -5,6 +5,7 @@
   ],
   "rules": {
     "max-line-length": false,
+    "member-access": [true, "no-public"],
     "no-conditional-assignment": false,
     "no-console": [true, "log"],
     "no-unused-variable": false
