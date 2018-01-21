@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.4.0 2018-01-20
+
+  * Serious bug fixed when more than two streams are piped.
+  * Errors in piping are propagated from intermediate streams to the first
+    stream (writable piping) or the last stream (readable piping) or both (full
+    piping).
+  * `duplex` property is renamed to `duplexStreams`.
+  * Requires `promise-readable` and `promise-writable` explicitely.
+
 ## v0.3.0 2017-10-17
 
   * Typescript: accept stream.Readable and stream.Writable as arguments.

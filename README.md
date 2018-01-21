@@ -77,7 +77,10 @@ This method returns `Promise` which is fulfilled when last stream (first
 stream for `end` event) emits event. The result of this event is returned
 or `undefined` value if stream is already ended.
 
-The promise will reject on error.
+The promise will reject on error. Errors in piping are propagated from
+intermediate streams to the first stream (writable piping) or the last stream
+(readable piping) or both (full piping). It means that operation on piping will
+be rejected if an error occurs in any of its streams.
 
 _Example:_
 
