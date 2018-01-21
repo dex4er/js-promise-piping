@@ -6,10 +6,10 @@ import { PromiseDuplex } from 'promise-duplex'
 import { PromiseReadable } from 'promise-readable'
 
 export class PromiseReadablePiping extends PromiseReadable<Readable | Duplex> {
-  stream: Readable
-  promiseReadable: PromiseReadable<Readable>
+  readonly stream: Readable
+  readonly promiseReadable: PromiseReadable<Readable>
 
-  readonly duplex: Duplex[]
+  readonly duplexStreams: Duplex[]
 
   constructor (readable: Readable | PromiseReadable<Readable>, duplex1: Duplex | PromiseDuplex<Duplex>, duplex2: Duplex | PromiseDuplex<Duplex>, duplex3: Duplex | PromiseDuplex<Duplex>, duplex4: Duplex | PromiseDuplex<Duplex>, duplex5: Duplex | PromiseDuplex<Duplex>, duplex6: Duplex | PromiseDuplex<Duplex>, duplex7: Duplex | PromiseDuplex<Duplex>, duplex8: Duplex | PromiseDuplex<Duplex>, duplex9: Duplex | PromiseDuplex<Duplex>)
   constructor (readable: Readable | PromiseReadable<Readable>, duplex1: Duplex | PromiseDuplex<Duplex>, duplex2: Duplex | PromiseDuplex<Duplex>, duplex3: Duplex | PromiseDuplex<Duplex>, duplex4: Duplex | PromiseDuplex<Duplex>, duplex5: Duplex | PromiseDuplex<Duplex>, duplex6: Duplex | PromiseDuplex<Duplex>, duplex7: Duplex | PromiseDuplex<Duplex>, duplex8: Duplex | PromiseDuplex<Duplex>)
