@@ -11,7 +11,7 @@ The piping object can be open-ended
 [`PromiseWritable`](https://www.npmjs.com/package/promise-writable) object or
 close-ended.
 
-The piping object can be build from streams: standard objects or promisified versions.
+The piping object can be build from streams: standard objects or promisified versions or another piping objects.
 
 ### Requirements
 
@@ -78,9 +78,8 @@ stream for `end` event) emits event. The result of this event is returned
 or `undefined` value if stream is already ended.
 
 The promise will reject on error. Errors in piping are propagated from
-intermediate streams to the first stream (writable piping) or the last stream
-(readable piping) or both (full piping). It means that operation on piping will
-be rejected if an error occurs in any of its streams.
+intermediate streams to the first stream and the last stream. It means that
+operation on piping will be rejected if an error occurs in any of its streams.
 
 _Example:_
 

@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.5.0 2018-01-22
+
+  * Better handling for errors in nested pipings (when stream for piping is
+    another open-ended piping).
+
 ## v0.4.0 2018-01-20
 
   * Serious bug fixed when more than two streams are piped.
