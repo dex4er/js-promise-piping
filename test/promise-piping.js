@@ -12,9 +12,9 @@ const PromisePiping = require('../lib/promise-piping').PromisePiping
 const PromiseReadablePiping = require('../lib/promise-readable-piping').PromiseReadablePiping
 const PromiseWritablePiping = require('../lib/promise-writable-piping').PromiseWritablePiping
 
-const MyReadable = require('./lib/my-readable').MyReadable
-const MyTransform = require('./lib/my-transform').MyTransform
-const MyWritable = require('./lib/my-writable').MyWritable
+const MyReadable = require('./lib/my-readable')
+const MyTransform = require('./lib/my-transform')
+const MyWritable = require('./lib/my-writable')
 
 Feature('Test promise-piping module', () => {
   Scenario('Use piping', () => {

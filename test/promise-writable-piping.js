@@ -10,8 +10,8 @@ chai.should()
 
 const PromiseWritablePiping = require('../lib/promise-writable-piping').PromiseWritablePiping
 
-const MyTransform = require('./lib/my-transform').MyTransform
-const MyWritable = require('./lib/my-writable').MyWritable
+const MyTransform = require('./lib/my-transform')
+const MyWritable = require('./lib/my-writable')
 
 Feature('Test promise-writable-piping module', () => {
   Scenario('Use writable piping', () => {

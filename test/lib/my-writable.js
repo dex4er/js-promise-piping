@@ -18,4 +18,4 @@ class MyWritable extends Writable {
   }
 }
 
-module.exports = { MyWritable: MyWritable }
+module.exports = MyWritable

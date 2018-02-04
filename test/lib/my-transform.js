@@ -16,4 +16,4 @@ class MyTransform extends Transform {
   }
 }
 
-module.exports = { MyTransform: MyTransform }
+module.exports = MyTransform

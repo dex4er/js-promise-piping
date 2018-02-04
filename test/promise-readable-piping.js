@@ -10,8 +10,8 @@ chai.should()
 
 const PromiseReadablePiping = require('../lib/promise-readable-piping').PromiseReadablePiping
 
-const MyReadable = require('./lib/my-readable').MyReadable
-const MyTransform = require('./lib/my-transform').MyTransform
+const MyReadable = require('./lib/my-readable')
+const MyTransform = require('./lib/my-transform')
 
 Feature('Test promise-readable-piping module', () => {
   Scenario('Use readable piping', () => {

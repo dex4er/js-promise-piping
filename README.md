@@ -11,11 +11,12 @@ The piping object can be open-ended
 [`PromiseWritable`](https://www.npmjs.com/package/promise-writable) object or
 close-ended.
 
-The piping object can be build from streams: standard objects or promisified versions or another piping objects.
+The piping object can be build from streams: standard objects or promisified
+versions or another piping objects.
 
 ### Requirements
 
-This module requires Node >= 4.
+This module requires Node >= 4. For Node < 6 `--harmony` flag is required.
 
 ### Installation
 
@@ -87,12 +88,15 @@ _Example:_
 await piping.once('finish')
 ```
 
-### Warning
+### See also
 
-Not all features are implemented yet.
+[`PromiseReadable`](https://www.npmjs.com/package/promise-readable),
+[`PromiseWritable`](https://www.npmjs.com/package/promise-writable),
+[`PromiseDuplex`](https://www.npmjs.com/package/promise-duplex),
+[`PromiseSocket`](https://www.npmjs.com/package/promise-socket).
 
 ### License
 
-Copyright (c) 2017 Piotr Roszatycki <piotr.roszatycki@gmail.com>
+Copyright (c) 2017-2018 Piotr Roszatycki <piotr.roszatycki@gmail.com>
 
 [MIT](https://opensource.org/licenses/MIT)
