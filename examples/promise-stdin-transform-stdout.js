@@ -1,11 +1,11 @@
 'use strict'
 
-const Transform = require('stream').Transform
+const { Transform } = require('stream')
 
-const PromisePiping = require('../lib/promise-piping').PromisePiping
+const PromisePiping = require('../lib/promise-piping')
 
 class MyTransform extends Transform {
-  _transform (chunk, encoding, callback) {
+  _transform (chunk, _encoding, callback) {
     callback(null, chunk)
   }
   _flush (callback) {

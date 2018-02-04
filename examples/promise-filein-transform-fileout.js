@@ -1,14 +1,12 @@
 'use strict'
 
 const fs = require('fs')
-const Transform = require('stream').Transform
+const { Transform } = require('stream')
 
-const PromiseReadablePiping = require('../lib/promise-readable-piping').PromiseReadablePiping
-const PromiseWritablePiping = require('../lib/promise-writable-piping').PromiseWritablePiping
-const PromisePiping = require('../lib/promise-piping').PromisePiping
+const { PromisePiping, PromiseReadablePiping, PromiseWritablePiping } = require('../lib/promise-piping')
 
 class MyTransform extends Transform {
-  _transform (chunk, encoding, callback) {
+  _transform (chunk, _encoding, callback) {
     callback(null, chunk)
   }
   _flush (callback) {
@@ -25,8 +23,8 @@ const streams = {
 
 for (const stream of Object.keys(streams)) {
   for (const event of ['close', 'data', 'drain', 'end', 'error', 'finish', 'pipe', 'readable', 'unpipe']) {
-    if (stream === 'stdout' && ['data', 'readable'].includes(event)) { continue }
-    streams[stream].on(event, (arg) => console.log(`${stream} emitted ${event}:`, typeof arg === 'object' ? arg.constructor.name : arg))
+    if (stream === 'stdout' && ['data', 'readable'].includes(event)) continue
+    streams[stream].on(event, (arg) => console.info(`${stream} emitted ${event}:`, typeof arg === 'object' ? arg.constructor.name : arg))
   }
 }
 
@@ -50,15 +48,15 @@ async function pipe3 () {
 async function main () {
   switch (process.env.MODE) {
     case '2':
-      pipe2()
+      await pipe2()
       break
     case '3':
-      pipe3()
+      await pipe3()
       break
     default:
-      pipe1()
+      await pipe1()
   }
-  console.log('END')
+  console.info('END')
 }
 
 main().catch(console.error)

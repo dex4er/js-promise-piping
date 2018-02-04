@@ -1,14 +1,10 @@
-import * as fs from 'fs'
-
+import fs from 'fs'
 import { Transform } from 'stream'
 
-import { PromiseReadablePiping } from '../lib/promise-readable-piping'
-import { PromiseWritablePiping } from '../lib/promise-writable-piping'
-
-import { PromisePiping } from '../lib/promise-piping'
+import { PromisePiping, PromiseReadablePiping, PromiseWritablePiping } from '../lib/promise-piping'
 
 class MyTransform extends Transform {
-  _transform (chunk: string | Buffer, {}, callback: (err: Error | null, chunk: string | Buffer) => void): void {
+  _transform (chunk: string | Buffer, _encoding: string, callback: (err: Error | null, chunk: string | Buffer) => void): void {
     callback(null, chunk)
   }
   _flush (callback: () => void) {

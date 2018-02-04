@@ -1,9 +1,9 @@
 import { Transform } from 'stream'
 
-import { PromisePiping } from '../lib/promise-piping'
+import PromisePiping from '../lib/promise-piping'
 
 class MyTransform extends Transform {
-  _transform (chunk: string | Buffer, {}, callback: (err: Error | null, chunk: string | Buffer) => void): void {
+  _transform (chunk: string | Buffer, _encoding: string, callback: (err: Error | null, chunk: string | Buffer) => void): void {
     callback(null, chunk)
   }
   _flush (callback: () => void) {

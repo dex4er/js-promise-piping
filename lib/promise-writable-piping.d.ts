@@ -2,8 +2,8 @@
 
 import { Readable, Duplex, Writable } from 'stream'
 
-import { PromiseDuplex } from 'promise-duplex'
-import { PromiseWritable } from 'promise-writable'
+import PromiseDuplex from 'promise-duplex'
+import PromiseWritable from 'promise-writable'
 
 export class PromiseWritablePiping extends PromiseWritable<Duplex | Writable> {
   readonly stream: Writable

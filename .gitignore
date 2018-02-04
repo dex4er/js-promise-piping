@@ -13,6 +13,10 @@ ts-node-*
 /.tern-project
 
 /package-lock.json
+/yarn.lock
+/yarn-error.log
 
 /a.in*
 /a.out*
+
+/.vscode

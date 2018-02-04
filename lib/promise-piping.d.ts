@@ -2,9 +2,9 @@
 
 import { Readable, Writable, Duplex } from 'stream'
 
-import { PromiseDuplex } from 'promise-duplex'
-import { PromiseReadable } from 'promise-readable'
-import { PromiseWritable } from 'promise-writable'
+import PromiseDuplex from 'promise-duplex'
+import PromiseReadable from 'promise-readable'
+import PromiseWritable from 'promise-writable'
 
 export { PromiseReadablePiping } from './promise-readable-piping'
 export { PromiseWritablePiping } from './promise-writable-piping'

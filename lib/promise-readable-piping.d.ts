@@ -2,8 +2,8 @@
 
 import { Readable, Duplex } from 'stream'
 
-import { PromiseDuplex } from 'promise-duplex'
-import { PromiseReadable } from 'promise-readable'
+import PromiseDuplex from 'promise-duplex'
+import PromiseReadable from 'promise-readable'
 
 export class PromiseReadablePiping extends PromiseReadable<Readable | Duplex> {
   readonly stream: Readable
