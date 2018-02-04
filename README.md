@@ -34,6 +34,12 @@ const {
 } = require('promise-piping')
 ```
 
+or:
+
+```js
+const PromisePiping = require('promise-piping')
+```
+
 _Typescript:_
 
 ```js
@@ -42,6 +48,12 @@ import {
   PromiseWritablePiping,
   PromisePiping
 } from 'promise-piping'
+```
+
+or:
+
+```js
+import PromisePiping from 'promise-piping'
 ```
 
 #### constructor
