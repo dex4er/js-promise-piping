@@ -28,6 +28,8 @@ export class PromisePiping {
   once (event: 'close' | 'end' | 'error' | 'finish'): Promise<void>
   once (event: 'open'): Promise<number>
   once (event: 'pipe' | 'unpipe'): Promise<Readable>
+
+  destroy (): void
 }
 
 export default PromisePiping

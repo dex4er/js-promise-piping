@@ -29,18 +29,21 @@ for (const stream of Object.keys(streams)) {
 async function pipe1 () {
   const pipe = new PromisePiping(streams.filein, streams.transform1, streams.transform2, streams.fileout)
   await pipe.once('close')
+  pipe.destroy()
 }
 
 async function pipe2 () {
   const pipeout = new PromiseWritablePiping(streams.transform2, streams.fileout)
   const pipe = new PromisePiping(streams.filein, pipeout)
   await pipe.once('close')
+  pipe.destroy()
 }
 
 async function pipe3 () {
   const pipein = new PromiseReadablePiping(streams.filein, streams.transform1)
   const pipe = new PromisePiping(pipein, streams.transform2, streams.fileout)
   await pipe.once('close')
+  pipe.destroy()
 }
 
 async function main (): Promise<void> {

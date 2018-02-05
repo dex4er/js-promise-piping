@@ -2,8 +2,9 @@
 
 ## v1.0.0 2018-02-04
 
-  * Upgraded promise-duplex@3.0.0, promise-readable@3.1.1,
-    promise-writable@3.1.0
+  * New `destroy` method.
+  * Upgraded promise-duplex@3.0.1, promise-readable@3.1.3,
+    promise-writable@3.1.1
   * Support `import PromisePiping from 'promise-piping'` syntax.
 
 ## v0.5.0 2018-01-22

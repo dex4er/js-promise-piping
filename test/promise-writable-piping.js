@@ -48,6 +48,14 @@ Feature('Test promise-writable-piping module', () => {
     Then('content is correct', () => {
       writable.lines.length.should.equal(11)
     })
+
+    And('writable piping can be destroyed', () => {
+      piping.destroy()
+    })
+
+    And('writable piping can be destroyed', () => {
+      piping.destroy()
+    })
   })
 
   for (const name of ['transform1', 'transform2', 'transform3', 'writable']) {
@@ -88,6 +96,14 @@ Feature('Test promise-writable-piping module', () => {
 
       Then('error is caught', () => {
         error.should.be.an('Error').and.have.property('message', name)
+      })
+
+      And('writable piping can be destroyed', () => {
+        piping.destroy()
+      })
+
+      And('writable piping can be destroyed', () => {
+        piping.destroy()
       })
     })
   }
@@ -135,6 +151,18 @@ Feature('Test promise-writable-piping module', () => {
 
     Then('content is correct', () => {
       writable.lines.length.should.equal(11)
+    })
+
+    And('writable piping1 can be destroyed', () => {
+      piping1.destroy()
+    })
+
+    And('writable piping2 can be destroyed', () => {
+      piping2.destroy()
+    })
+
+    And('writable piping3 can be destroyed', () => {
+      piping3.destroy()
     })
   })
 
@@ -186,6 +214,30 @@ Feature('Test promise-writable-piping module', () => {
 
       Then('error is caught', () => {
         error.should.be.an('Error').and.have.property('message', name)
+      })
+
+      And('writable piping1 can be destroyed', () => {
+        piping1.destroy()
+      })
+
+      And('writable piping2 can be destroyed', () => {
+        piping2.destroy()
+      })
+
+      And('writable piping3 can be destroyed', () => {
+        piping3.destroy()
+      })
+
+      And('writable piping1 can be destroyed', () => {
+        piping1.destroy()
+      })
+
+      And('writable piping2 can be destroyed', () => {
+        piping2.destroy()
+      })
+
+      And('writable piping3 can be destroyed', () => {
+        piping3.destroy()
       })
     })
   }

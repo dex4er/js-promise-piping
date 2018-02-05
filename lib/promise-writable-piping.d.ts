@@ -26,6 +26,8 @@ export class PromiseWritablePiping extends PromiseWritable<Duplex | Writable> {
   once (event: 'pipe' | 'unpipe'): Promise<Readable>
 
   end (): Promise<void>
+
+  destroy (): void
 }
 
 export default PromiseWritablePiping

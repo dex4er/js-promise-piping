@@ -51,6 +51,14 @@ Feature('Test promise-readable-piping module', () => {
     Then('content is correct', () => {
       content.split('\n').length.should.equal(11)
     })
+
+    And('readable piping can be destroyed', () => {
+      piping.destroy()
+    })
+
+    And('readable piping can be destroyed', () => {
+      piping.destroy()
+    })
   })
 
   for (const name of ['readable', 'transform1', 'transform2', 'transform3']) {
@@ -91,6 +99,14 @@ Feature('Test promise-readable-piping module', () => {
 
       Then('error is caught', () => {
         error.should.be.an('Error').and.have.property('message', name)
+      })
+
+      And('readable piping can be destroyed', () => {
+        piping.destroy()
+      })
+
+      And('readable piping can be destroyed', () => {
+        piping.destroy()
       })
     })
   }
@@ -142,6 +158,30 @@ Feature('Test promise-readable-piping module', () => {
     Then('content is correct', () => {
       content.split('\n').length.should.equal(11)
     })
+
+    And('readable piping1 can be destroyed', () => {
+      piping1.destroy()
+    })
+
+    And('readable piping2 can be destroyed', () => {
+      piping2.destroy()
+    })
+
+    And('readable piping3 can be destroyed', () => {
+      piping3.destroy()
+    })
+
+    And('readable piping1 can be destroyed', () => {
+      piping1.destroy()
+    })
+
+    And('readable piping2 can be destroyed', () => {
+      piping2.destroy()
+    })
+
+    And('readable piping3 can be destroyed', () => {
+      piping3.destroy()
+    })
   })
 
   for (const name of ['readable', 'transform1', 'transform2', 'transform3']) {
@@ -192,6 +232,30 @@ Feature('Test promise-readable-piping module', () => {
 
       Then('error is caught', () => {
         error.should.be.an('Error').and.have.property('message', name)
+      })
+
+      And('readable piping1 can be destroyed', () => {
+        piping1.destroy()
+      })
+
+      And('readable piping2 can be destroyed', () => {
+        piping2.destroy()
+      })
+
+      And('readable piping3 can be destroyed', () => {
+        piping3.destroy()
+      })
+
+      And('readable piping1 can be destroyed', () => {
+        piping1.destroy()
+      })
+
+      And('readable piping2 can be destroyed', () => {
+        piping2.destroy()
+      })
+
+      And('readable piping3 can be destroyed', () => {
+        piping3.destroy()
       })
     })
   }

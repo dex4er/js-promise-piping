@@ -100,6 +100,14 @@ _Example:_
 await piping.once('finish')
 ```
 
+#### destroy
+
+```
+piping.destroy()
+```
+
+This method calls destroy method on stream and cleans up all own handlers.
+
 ### See also
 
 [`PromiseReadable`](https://www.npmjs.com/package/promise-readable),
