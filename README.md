@@ -1,6 +1,8 @@
-## promise-piping
+# promise-piping
 
+<!-- markdownlint-disable MD013 -->
 [![Build Status](https://secure.travis-ci.org/dex4er/js-promise-piping.svg)](http://travis-ci.org/dex4er/js-promise-piping) [![Coverage Status](https://coveralls.io/repos/github/dex4er/js-promise-piping/badge.svg)](https://coveralls.io/github/dex4er/js-promise-piping) [![npm](https://img.shields.io/npm/v/promise-piping.svg)](https://www.npmjs.com/package/promise-piping)
+<!-- markdownlint-enable MD013 -->
 
 This module allows to convert stacked streams into one
 [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
@@ -14,17 +16,17 @@ close-ended.
 The piping object can be build from streams: standard objects or promisified
 versions or another piping objects.
 
-### Requirements
+## Requirements
 
 This module requires Node >= 4. For Node < 6 `--harmony` flag is required.
 
-### Installation
+## Installation
 
 ```shell
 npm install promise-piping
 ```
 
-### Usage
+## Usage
 
 ```js
 const {
@@ -56,7 +58,7 @@ or:
 import PromisePiping from 'promise-piping'
 ```
 
-#### constructor
+### constructor
 
 ```js
 const readablePiping = new PromiseReadablePiping(readable, duplex...)
@@ -80,7 +82,7 @@ const writablePiping = new PromiseWritablePiping(gzip, fileout)
 const piping = new PromisePiping(filein, gzip, fileout)
 ```
 
-#### once
+### once
 
 ```js
 const result = await piping.once(event)
@@ -100,23 +102,23 @@ _Example:_
 await piping.once('finish')
 ```
 
-#### destroy
+### destroy
 
-```
+```js
 piping.destroy()
 ```
 
 This method calls destroy method on stream and cleans up all own handlers.
 
-### See also
+## See also
 
 [`PromiseReadable`](https://www.npmjs.com/package/promise-readable),
 [`PromiseWritable`](https://www.npmjs.com/package/promise-writable),
 [`PromiseDuplex`](https://www.npmjs.com/package/promise-duplex),
 [`PromiseSocket`](https://www.npmjs.com/package/promise-socket).
 
-### License
+## License
 
-Copyright (c) 2017-2018 Piotr Roszatycki <piotr.roszatycki@gmail.com>
+Copyright (c) 2017-2018 Piotr Roszatycki <mailto:piotr.roszatycki@gmail.com>
 
 [MIT](https://opensource.org/licenses/MIT)
